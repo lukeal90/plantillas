@@ -37,7 +37,10 @@ class ProductService{
         const newProducto = {...producto, id}
         productos.push(newProducto);
         await fs.writeFile(pathFile, JSON.stringify(productos));
-        return {"msg" : `Se agrego el producto con el ID: ${id}`};
+        return {
+                "msg" : `Se agrego el producto con el ID: ${id}`,
+                "status" : "ok"
+            };
     }    
     
     static async updateProduct(producto, id) {
